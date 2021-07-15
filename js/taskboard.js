@@ -11,6 +11,8 @@ var myObj= {
     document.getElementById("show").style.display = "inline-block";
     document.getElementById('name').value="";
     document.getElementById('description').value="";
+    document.getElementById('myDateBegin').value="";
+    document.getElementById('myDateEnd').value="";
 
 },
 //Show Form Method
@@ -31,13 +33,12 @@ var myObj= {
 
 //Removing task method
 function  removeTask(x){
-    console.log("###################################################")
-    console.log("Remover tarefa:"+x)
+    
     var myTasks = returnToDo();
     for (var i = 0; i < myTasks.length; i++){
         if (x == parseInt(myTasks[i].id)) {
             var item=i
-            console.log("item= "+item)
+            
         }
     }
     myTasks.splice(item, 1);
@@ -49,13 +50,12 @@ function  removeTask(x){
 
 //Editing task method
 function  editTask(x){
-    console.log("###################################################")
-    console.log("Remover tarefa:"+x)
+    
     var myTasks = returnToDo();
     for (var i = 0; i < myTasks.length; i++){
         if (x == parseInt(myTasks[i].id)) {
             var item=i
-            console.log("item= "+item)
+            
         }
     }
     document.getElementById("form").style.display = "block";
@@ -66,6 +66,7 @@ function  editTask(x){
     document.getElementById('myDateBegin').value=myTasks[item].dateBg;
     document.getElementById('myDateEnd').value=myTasks[item].dateEnd;
     document.getElementById('description').value= myTasks[item].describe;
+    document.getElementById('valueID').value= myTasks[item].id;
     }
 
 
@@ -84,13 +85,13 @@ function Task(){
     var myTasks = returnToDo();
     var topValue=0
     for (var k = 0; k < myTasks.length; k++){
-            console.log(myTasks[k].id);
+            
             if(topValue <myTasks[k].id){
                 topValue = myTasks[k].id
             }
             
     }
-    console.log("topvalue: "+topValue)
+    
     this.id = topValue+1;
     this.name = document.getElementById('name').value;
     this.dateBg = document.getElementById('myDateBegin').value;
@@ -113,6 +114,7 @@ function newTask(x,y,z,k,j){
         '<p><b>Start:</b> ' +z +' </p>'+
         '<p><b>End:</b> ' +k+ '</p>'+
         '<hr class="lineInside">'+
+        '<div hidden id=valueID>'+j+'</div>'+
         '<p><div class="delBtn red " id=red'+j+'" onclick="removeTask('+j+')"" ><i class="fas fa-trash-alt icon"></i></div>'+
         '<div class="editBtn yellow id=yellow'+j+'" onclick="editTask('+j+')"" ><i class="far fa-edit"></i>Edit</div></p>'+
         
@@ -122,7 +124,7 @@ function newTask(x,y,z,k,j){
 //Gets all the objects from the array.
 function showMyTasks(){
     var myTasks = returnToDo();
-    console.log(myTasks);
+    
     document.getElementById('myTasks').innerHTML = '';   
     for(var i=0;i<myTasks.length;i++){
         newTask(
@@ -153,12 +155,12 @@ function submitEdit(){
     var myTasks = returnToDo();
     console.log(myTasks);
     for (var i = 0; i < myTasks.length; i++){
-        if (document.getElementById('name').value == myTasks[i].name) {
+        if (document.getElementById('valueID').value == myTasks[i].id) {
             var index=i
             
         }
     }
-    console.log(index)
+    
     myTasks[index].name = document.getElementById('name').value;
     myTasks[index].dateBg = document.getElementById('myDateBegin').value;
     myTasks[index].dateEnd = document.getElementById('myDateEnd').value;
