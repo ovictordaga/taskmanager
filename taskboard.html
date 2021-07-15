@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>TaskMe</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'><link rel="stylesheet" href="./css/taskboard.css">
+
+</head>
+<body>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    
+    
+
+</head>
+
+
+<body>
+   <div class="container">
+
+    <img src="./img/logotaskme.png" id="imgTitle" class="myShadow-2" />
+      <hr class="topLine"/>
+<!--FORM-->
+        <section><div class="row">
+           <form class="animated fadeIn" id="form">
+                <div class="formSheet">
+                    <div class="s12 l12 m12 ">
+
+                        <input type="text" id="name" placeholder="Title">
+                        <div class='startDate'>Start: <input type="date" id="myDateBegin"></div>
+                        <div class='endDate'>End: <input type="date" id="myDateEnd"></div>
+                        
+                    </div>
+                    
+                    <div class="row">
+                        <div class="s10 l10 m10">
+                        <textarea id="description" placeholder="TaskMe something" cols="30" rows="10" wrap="hard onClick="myObj.textSelect(this)"></textarea>
+
+                        </div>
+                    </div>
+                    <div class="col s12 l12 m12">
+                        <div class="btn" id="submitBtn" onclick="submitInfo()">Done</div>
+                        <div class="btn" id="editBtn" onclick="submitEdit()">Finish</div>
+                        <div class="btn btnBack" onclick="myObj.hide()">Back</div>
+                    </div>
+
+                </div>
+            </form>
+        </div></section>
+        <div class="container">
+            <div class="btn addBtn" onClick="myObj.show()" id="show"><i class="fas fa-plus"></i> Add Task</div>
+            <h1 class='titleBoard'>Tasks</h1>
+            
+        </div>
+       
+<!--TASK LIST-->
+  
+          <div class="row " style="text-align:center;" id="myTasks">   
+          </div>
+
+   </div>
+   
+    </body>
+</html>
+
+  <script  src="./js/taskboard.js"></script>
+  <script src="https://kit.fontawesome.com/7ee086e4a4.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
